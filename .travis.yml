@@ -11,7 +11,7 @@ before_script:
   - env | sort
 
 script:
-  - image="napnap75/rpi-alpine-base:latest
+  - image="napnap75/rpi-alpine-base:latest"
   - docker build -t "$image" .
 
 after_script:
