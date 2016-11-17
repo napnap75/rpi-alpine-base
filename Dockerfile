@@ -2,11 +2,10 @@
 FROM multiarch/alpine:armhf-v3.3
 
 # Install dependencies
-RUN echo -e "http://nl.alpinelinux.org/alpine/latest-stable/main\nhttp://nl.alpinelinux.org/alpine/latest-stable/community" > /etc/apk/repositories \
+RUN echo -e "http://fr.alpinelinux.org/alpine/v3.3/main\nhttp://fr.alpinelinux.org/alpine/v3.3/community" > /etc/apk/repositories \
   && apk update \
   && apk upgrade \
-  && apk add bash tini su-exec \
-  && apk -vv info|sort
+  && apk add bash tini su-exec
 
 # Set timezone
 RUN setup-timezone -z CET
