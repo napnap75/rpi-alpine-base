@@ -7,8 +7,8 @@ install:
 
 script:
   - docker build -t napnap75/rpi-alpine-base:v3.3 .
-  - docker run --rm --entrypoint /bin/bash napnap75/rpi-alpine-base:v3.3 bash env && uname -a
-  - docker run --rm napnap75/rpi-alpine-base:v3.3 bash env && uname -a
+#  - docker run --rm --entrypoint /bin/bash napnap75/rpi-alpine-base:v3.3 bash env && uname -a
+#  - docker run --rm napnap75/rpi-alpine-base:v3.3 bash env && uname -a
   - docker tag napnap75/rpi-alpine-base:v3.3 napnap75/rpi-alpine-base:latest
   - docker images
 
