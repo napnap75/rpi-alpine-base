@@ -1,4 +1,5 @@
-FROM hypriot/rpi-alpine-scratch
+#FROM hypriot/rpi-alpine-scratch
+FROM multiarch/alpine:armhf-v3.3
 
 # Install dependencies
 RUN echo -e "http://nl.alpinelinux.org/alpine/latest-stable/main\nhttp://nl.alpinelinux.org/alpine/latest-stable/community" > /etc/apk/repositories \
