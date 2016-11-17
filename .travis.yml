@@ -3,11 +3,11 @@ services: docker
 sudo: required
 
 install:
-  - docker run --rm --privileged multiarch/qemu-user-static:register
+  - docker run --rm --privileged multiarch/qemu-user-static:register --reset
 
 script:
   - docker build -t napnap75/rpi-alpine-base:v3.3 .
-  - docker run --rm napnap75/rpi-alpine-base:v3.3 bash echo $PATH
+  - docker run --rm napnap75/rpi-alpine-base:v3.3 bash env && uname -a
   - docker tag napnap75/rpi-alpine-base:v3.3 napnap75/rpi-alpine-base:latest
   - docker images
 
