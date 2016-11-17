@@ -2,7 +2,7 @@
 FROM multiarch/alpine:armhf-v3.3
 
 # Install dependencies
-RUN echo -e "http://fr.alpinelinux.org/alpine/v3.3/main\nhttp://fr.alpinelinux.org/alpine/v3.4/community" > /etc/apk/repositories \
+RUN echo -e "http://fr.alpinelinux.org/alpine/latest-stable/main\nhttp://fr.alpinelinux.org/alpine/latest-stable/community" > /etc/apk/repositories \
   && apk update \
   && apk upgrade \
   && apk add bash tini su-exec
