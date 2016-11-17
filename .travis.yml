@@ -11,6 +11,6 @@ script:
   - docker images
 
 after_success:
-  - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+  - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   - docker push napnap75/rpi-alpine-base:v3.3
   
