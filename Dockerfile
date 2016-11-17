@@ -5,7 +5,8 @@ FROM multiarch/alpine:armhf-v3.3
 RUN echo -e "http://nl.alpinelinux.org/alpine/latest-stable/main\nhttp://nl.alpinelinux.org/alpine/latest-stable/community" > /etc/apk/repositories \
   && apk update \
   && apk upgrade \
-  && apk add bash tini su-exec
+  && apk add bash tini su-exec \
+  && apk -vv info|sort
 
 # Set timezone
 RUN setup-timezone -z CET
