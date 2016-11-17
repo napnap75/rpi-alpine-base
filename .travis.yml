@@ -10,7 +10,7 @@ script:
   - docker tag napnap75/rpi-alpine-base:v3.3 napnap75/rpi-alpine-base:latest
   - docker images
 
-deploy:
+after_success:
   - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   - docker push napnap75/rpi-alpine-base:v3.3
   
