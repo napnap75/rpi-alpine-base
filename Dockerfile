@@ -3,6 +3,7 @@ FROM hypriot/rpi-alpine-scratch
 # Add qemu to allow build of this image in Travis CI
 ADD https://github.com/multiarch/qemu-user-static/releases/download/v2.6.0/x86_64_qemu-arm-static.tar.gz /usr/bin
 ADD binfmt_misc-register /proc/sys/fs/binfmt_misc/register
+ENV ARCH=arm
 
 # Install dependencies
 RUN echo -e "http://fr.alpinelinux.org/alpine/latest-stable/main\nhttp://fr.alpinelinux.org/alpine/latest-stable/community" > /etc/apk/repositories \
