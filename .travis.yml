@@ -6,12 +6,10 @@ install:
   - docker run --rm --privileged multiarch/qemu-user-static:register
 
 script:
-  - docker build -t napnap75/rpi-alpine-base:v3.3 .
-  - docker run --rm napnap75/rpi-alpine-base:v3.3 bash -c env && uname -a
-  - docker tag napnap75/rpi-alpine-base:v3.3 napnap75/rpi-alpine-base:latest
+  - docker build -t napnap75/rpi-alpine-base:latest .
+  - docker run --rm napnap75/rpi-alpine-base:latest bash -c env && uname -a
   - docker images
 
 after_success:
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
-  - docker push napnap75/rpi-alpine-base:v3.3
   - docker push napnap75/rpi-alpine-base:latest
