@@ -4,6 +4,7 @@ sudo: required
 
 install:
   - docker run --rm --privileged multiarch/qemu-user-static:register
+  - wget -N https://github.com/multiarch/qemu-user-static/releases/x86_64_qemu-arm-static.tar.gz
 
 script:
   - docker build -t napnap75/rpi-alpine-base:latest .
