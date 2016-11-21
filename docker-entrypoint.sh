@@ -1,4 +1,11 @@
 #!/bin/bash
+
+# Run a custom script (if provided) before running the command
+if [ -f /usr/sbin/docker-entrypoint-pre.sh ]; then
+  /usr/sbin/docker-entrypoint-pre.sh
+fi
+
+# Run the command as a local user with a UID and GID given as parameters
 if [ "${RUN_AS}" ]; then
   RUN_AS_UID=$(echo $RUN_AS | cut -d: -f1)
   RUN_AS_GID=$(echo $RUN_AS | cut -d: -f2)
