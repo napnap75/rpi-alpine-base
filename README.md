@@ -32,5 +32,7 @@ To manage the user who runs the processes inside the image, you have 3 choices:
 2. Set USER property in your Dockerfile (as explained in [Docker docs](https://docs.docker.com/engine/reference/builder/#user) to run the whole image with that user). However, if you share data outside the container, this does not allow to have the right ownership for this data.
 3. Set the `RUN_AS` environment variable on startup (either with `docker run -e RUN_AS=1234:5678` or with the `environment` key in your compose file). In that case, the image is built with root privileges and only the main process is run as a non-priviledged user (for security reasons). The form of the `RUN_AS` variable must be `UID:GID` of the user.
 
+If you need to do specific things in the entrypoint (for example to initialize data before running the main process), write a shell script in `/usr/sbin/docker-entrypoint-pre.sh` and it will be executed at first in the entrypoint script.
+
 # Caveats
 If you set the `RUN_AS` environment variable, the program will not be allowed to upgrade itself and you will have to manually upgrade it (either by rebuilding the image or by using the `docker exec` command (which do not use the entrypoint script and therefore is run as ROOT)).
