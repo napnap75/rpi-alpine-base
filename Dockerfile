@@ -15,9 +15,9 @@ RUN echo -e "http://fr.alpinelinux.org/alpine/v3.4/main\nhttp://fr.alpinelinux.o
 RUN setup-timezone -z CET
 
 # Add my own entry script to run as one user
-ADD entry.sh /usr/sbin/entry.sh
-RUN chmod +x /usr/sbin/entry.sh
+ADD docker-entrypoint.sh /usr/sbin/docker-entrypoint.sh
+RUN chmod +x /usr/sbin/docker-entrypoint.sh
 
 # Set Tini as entrypoint 
-ENTRYPOINT ["/sbin/tini", "--", "/usr/sbin/entry.sh"]
+ENTRYPOINT ["/sbin/tini", "--", "/usr/sbin/docker-entrypoint.sh"]
  
