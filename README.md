@@ -11,7 +11,7 @@ This image is based on [hypriot/rpi-alpine-scratch](https://hub.docker.com/r/hyp
 
 This image contains :
 
-- [Alpine Linux](https://alpinelinux.org/) (edge - currently v3.4) provided by the hypriot base image.
+- [Alpine Linux](https://alpinelinux.org/) (currently v3.4) provided by the hypriot base image.
 - [QEMU](http://wiki.qemu.org/Main_Page) to allow the image to be built and run in [Travis CI](http://travis-ci.org/).
 - [Tini](https://github.com/krallin/tini) to properly manage the processes (Tini spawns a single child and wait for it to exit all the while reaping zombies and performing signal forwarding).
 - [su-exec](https://github.com/ncopa/su-exec) to properly manage users permissions inside the image (see below).
