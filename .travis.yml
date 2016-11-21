@@ -15,4 +15,5 @@ script:
 after_success:
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   - docker push napnap75/rpi-alpine-base:latest
- 
+  - docker tag napnap75/rpi-alpine-base:latest napnap75/rpi-alpine-base:v3.4
+  - docker push napnap75/rpi-alpine-base:v3.4
