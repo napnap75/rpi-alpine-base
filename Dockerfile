@@ -1,4 +1,4 @@
-FROM hypriot/rpi-alpine-scratch
+FROM hypriot/rpi-alpine-scratch:edge
 
 # Add qemu to allow build of this image in Travis CI
 ADD qemu-arm-static /usr/bin
