@@ -3,7 +3,8 @@ My own Docker base image for the Rasperry Pi based on Alpine
 ![Alpine Linux](https://pkgs.alpinelinux.org/assets/alpinelinux-logo.svg)
 
 # Status
-[![Build Status](https://travis-ci.org/napnap75/rpi-alpine-base.svg?branch=master)](https://travis-ci.org/napnap75/rpi-alpine-base)
+[![Build status](https://travis-ci.org/napnap75/rpi-alpine-base.svg?branch=master)](https://travis-ci.org/napnap75/rpi-alpine-base)
+[![Image size](https://images.microbadger.com/badges/image/napnap75/rpi-alpine-base.svg)](https://microbadger.com/images/napnap75/rpi-alpine-base "Get your own image badge on microbadger.com")
 
 # Content
 This image is based on [hypriot/rpi-alpine-scratch](https://hub.docker.com/r/hypriot/rpi-alpine-scratch/).
