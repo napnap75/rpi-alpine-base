@@ -2,7 +2,7 @@
 
 # Run a custom script (if provided) before running the command
 if [ -f /usr/sbin/docker-entrypoint-pre.sh ]; then
-  /usr/sbin/docker-entrypoint-pre.sh
+  /usr/sbin/docker-entrypoint-pre.sh $*
 fi
 
 # Run the command as a local user with a UID and GID given as parameters
