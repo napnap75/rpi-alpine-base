@@ -13,10 +13,7 @@ RUN echo -e "http://fr.alpinelinux.org/alpine/v3.4/main\nhttp://fr.alpinelinux.o
 	&& rm -rf /var/cache/apk/*
 
 # Set timezone
-RUN apk update \
-	&& apk add tzdata \
-	&& echo "CET" > /etc/timezone \
-	&& cp /usr/share/zoneinfo/CET /etc/localtime
+RUN echo "CET" > /etc/TZ
 
 # Add my own entry script to run as one user
 ADD docker-entrypoint.sh /usr/sbin/docker-entrypoint.sh
