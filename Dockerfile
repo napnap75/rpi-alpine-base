@@ -9,11 +9,11 @@ ENV ARCH=arm
 RUN echo -e "http://fr.alpinelinux.org/alpine/v3.4/main\nhttp://fr.alpinelinux.org/alpine/v3.4/community" > /etc/apk/repositories \
 	&& apk update \
 	&& apk upgrade \
-	&& apk add bash tini su-exec \
+	&& apk add bash tini su-exec tzdata \
 	&& rm -rf /var/cache/apk/*
 
 # Set timezone
-RUN echo "CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00" > /etc/TZ
+RUN setup-timezone -z CET
 
 # Add my own entry script to run as one user
 ADD docker-entrypoint.sh /usr/sbin/docker-entrypoint.sh
