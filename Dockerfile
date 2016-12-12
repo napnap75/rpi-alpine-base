@@ -15,9 +15,8 @@ RUN echo -e "http://fr.alpinelinux.org/alpine/v3.4/main\nhttp://fr.alpinelinux.o
 # Set timezone
 RUN apk update \
 	&& apk add tzdata \
-	&& cp /usr/share/zoneinfo/Europe/Paris /etc/localtime \
-	&& echo "Europe/Paris" >  /etc/timezone \
-	&& apk del tzdata \
+	&& echo "CET" > /etc/timezone \
+	&& dpkg-reconfigure --frontend noninteractive tzdata
 	&& rm -rf /var/cache/apk/*
 
 # Add my own entry script to run as one user
