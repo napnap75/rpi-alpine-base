@@ -3,7 +3,7 @@ My own Docker base image for the Rasperry Pi based on Alpine
 ![Alpine Linux](https://pkgs.alpinelinux.org/assets/alpinelinux-logo.svg)
 
 # Status
-[![Version](https://images.microbadger.com/badges/version/napnap75/rpi-alpine-base.svg)](https://microbadger.com/images/napnap75/rpi-alpine-base "Get your own version badge on microbadger.com") [![Build Status](https://travis-ci.org/napnap75/rpi-alpine-base.svg?branch=master)](https://travis-ci.org/napnap75/rpi-alpine-base) [![Image size](https://images.microbadger.com/badges/image/napnap75/rpi-alpine-base.svg)](https://microbadger.com/images/napnap75/rpi-alpine-base "Get your own image badge on microbadger.com") [![Github link](https://assets-cdn.github.com/favicon.ico)](https://github.com/napnap75/rpi-alpine-base) [![Docker hub link](https://www.docker.com/favicon.ico)](https://hub.docker.com/r/napnap75/rpi-alpine-base/)
+[![Build Status](https://travis-ci.org/napnap75/rpi-alpine-base.svg?branch=master)](https://travis-ci.org/napnap75/rpi-alpine-base) [![Image size](https://images.microbadger.com/badges/image/napnap75/rpi-alpine-base.svg)](https://microbadger.com/images/napnap75/rpi-alpine-base "Get your own image badge on microbadger.com") [![Github link](https://assets-cdn.github.com/favicon.ico)](https://github.com/napnap75/rpi-alpine-base) [![Docker hub link](https://www.docker.com/favicon.ico)](https://hub.docker.com/r/napnap75/rpi-alpine-base/)
 
 
 # Content
