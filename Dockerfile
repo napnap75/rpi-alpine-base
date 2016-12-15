@@ -5,17 +5,13 @@ ADD qemu-arm-static /usr/bin
 ADD binfmt_misc-register /proc/sys/fs/binfmt_misc/register
 ENV ARCH=arm
 
-# Install dependencies
+# Install dependencies and set timezone
 RUN echo -e "http://fr.alpinelinux.org/alpine/v3.4/main\nhttp://fr.alpinelinux.org/alpine/v3.4/community" > /etc/apk/repositories \
 	&& apk update \
 	&& apk upgrade \
-	&& apk add bash tini su-exec tzdata
-
-# Set timezone
-RUN setup-timezone -z CET
-
-# Cleanup to reduce the images size
-RUN apk del tzdata \
+	&& apk add bash tini su-exec tzdata \
+	&& setup-timezone -z CET \
+	&& apk del tzdata \
 	&& rm -rf /var/cache/apk/*
 
 # Add my own entry script to run as one user
