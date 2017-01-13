@@ -1,9 +1,4 @@
-FROM hypriot/rpi-alpine-scratch:v3.4
-
-# Add qemu to allow build of this image in Travis CI
-ADD qemu-arm-static /usr/bin
-ADD binfmt_misc-register /proc/sys/fs/binfmt_misc/register
-ENV ARCH=arm
+FROM hypriot/rpi-alpine:3.4
 
 # Install dependencies and set timezone
 RUN echo -e "http://fr.alpinelinux.org/alpine/v3.4/main\nhttp://fr.alpinelinux.org/alpine/v3.4/community" > /etc/apk/repositories \
