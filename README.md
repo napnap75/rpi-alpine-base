@@ -7,7 +7,7 @@ My own Docker base image for the Rasperry Pi based on Alpine
 
 
 # Content
-This image is based on [hypriot/rpi-alpine-scratch](https://hub.docker.com/r/hypriot/rpi-alpine-scratch/).
+This image is based on [hypriot/rpi-alpine](https://hub.docker.com/r/hypriot/rpi-alpine/).
 
 This image contains :
 
