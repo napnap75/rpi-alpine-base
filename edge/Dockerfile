@@ -1,4 +1,7 @@
-FROM hypriot/rpi-alpine:3.4
+FROM armhf/alpine:edge
+
+# Install QEmu to be able to build this image in Travis CI
+COPY qemu-arm-static /usr/bin/qemu-arm-static
 
 # Install dependencies and set timezone
 RUN echo -e "http://fr.alpinelinux.org/alpine/edge/main\nhttp://fr.alpinelinux.org/alpine/edge/community" > /etc/apk/repositories \

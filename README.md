@@ -7,11 +7,12 @@ My own Docker base image for the Rasperry Pi based on Alpine
 
 
 # Content
-This image is based on [hypriot/rpi-alpine](https://hub.docker.com/r/hypriot/rpi-alpine/).
+This image is based on [armhf/alpine](https://hub.docker.com/r/armhf/alpine/).
 
 This image contains :
 
 - [Alpine Linux](https://alpinelinux.org/) (currently v3.4) provided by the hypriot base image.
+- [QEmu](https://github.com/multiarch/qemu-user-static) to allow the build and run of the images in x86 system (especially Travis CI)
 - [Tini](https://github.com/krallin/tini) to properly manage the processes (Tini spawns a single child and wait for it to exit all the while reaping zombies and performing signal forwarding).
 - [su-exec](https://github.com/ncopa/su-exec) to properly manage users permissions inside the image (see below).
 - Bash because I use it in my scripts.
