@@ -4,7 +4,7 @@ FROM armhf/alpine:edge
 COPY qemu-arm-static /usr/bin/qemu-arm-static
 
 # Install dependencies and set timezone
-RUN echo -e "http://fr.alpinelinux.org/alpine/edge/main\nhttp://fr.alpinelinux.org/alpine/edge/community" > /etc/apk/repositories \
+RUN echo -e "http://dl-4.alpinelinux.org/alpine/edge/main\nhttp://dl-4.alpinelinux.org/alpine/edge/community" > /etc/apk/repositories \
 	&& apk update \
 	&& apk upgrade \
 	&& apk add bash tini su-exec alpine-conf tzdata \
