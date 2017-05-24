@@ -12,7 +12,7 @@ install:
 
 script:
 # Download
-  - DOWNLOAD_URL=$(curl -s https://api.github.com/repos/multiarch/qemu-user-static/releases/latest | grep "browser_download_url" | grep "/qemu-arm-static.tar.gz" | cut -d\" -f4)
+  - DOWNLOAD_URL=$(curl -s https://api.github.com/repos/multiarch/qemu-user-static/releases/latest | grep "browser_download_url" | grep "x86_64_qemu-arm-static" | cut -d\" -f4)
   - curl -L -o qemu-arm-static.tar.gz ${DOWNLOAD_URL} && tar xzf qemu-arm-static.tar.gz
   - if [ -f qemu-arm ] ; then mv qemu-arm qemu-arm-static ; fi
 # Build
