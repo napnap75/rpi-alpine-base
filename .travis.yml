@@ -3,23 +3,26 @@ services: docker
 sudo: required
 
 env:
-  - VERSION=3.4
   - VERSION=3.5
+  - VERSION=3.6
   - VERSION=edge
 
-install:  
+# Install QEmu to allow Travis (on x86 systems) to build ARM images
+install:
   - docker run --rm --privileged multiarch/qemu-user-static:register
-
-script:
-# Download
   - curl -L -o qemu-arm-static.tar.gz https://github.com/multiarch/qemu-user-static/releases/download/v2.6.0/qemu-arm-static.tar.gz && tar xzf qemu-arm-static.tar.gz
-# Build
-  - docker build -t napnap75/rpi-alpine-base:${VERSION} -f ${VERSION}/Dockerfile .
-# Check
+
+# Build and test the image
+script:
+  - if [ "${VERSION}" != "edge" ]; then cat Dockerfile.source | sed "s/%VERSION%/${VERSION}/g" > Dockerfile.${VERSION} ; fi
+  - docker build -t napnap75/rpi-alpine-base:${VERSION} -f Dockerfile.${VERSION} .
   - docker images
   - docker run --rm napnap75/rpi-alpine-base:${VERSION} uname -a
 
+# If successful, push the images
 after_success:
-  - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
-  - docker push napnap75/rpi-alpine-base:${VERSION}
-  - if [ "${VERSION}" = "3.5" ]; then docker tag napnap75/rpi-alpine-base:${VERSION} napnap75/rpi-alpine-base:latest ; docker push napnap75/rpi-alpine-base:latest ; fi
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then
+      docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" ;
+      docker push napnap75/rpi-alpine-base:${VERSION} ;
+      if [ "${VERSION}" == "3.6" ]; then docker tag napnap75/rpi-alpine-base:${VERSION} napnap75/rpi-alpine-base:latest ; docker push napnap75/rpi-alpine-base:latest ; fi ;
+    fi
