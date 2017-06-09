@@ -1,4 +1,4 @@
-FROM armhf/arm32v6:%VERSION%
+FROM arm32v6/alpine:%VERSION%
 
 # Install QEmu to be able to build this image in Travis CI
 COPY qemu-arm-static /usr/bin/qemu-arm-static
