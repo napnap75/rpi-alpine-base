@@ -1,4 +1,3 @@
-# rpi-alpine-base
 My own Docker base image for the Rasperry Pi based on Alpine
 ![Alpine Linux](https://pkgs.alpinelinux.org/assets/alpinelinux-logo.svg)
 
@@ -7,7 +6,7 @@ My own Docker base image for the Rasperry Pi based on Alpine
 
 
 # Content
-This image is based on [armhf/alpine](https://hub.docker.com/r/armhf/alpine/).
+This image is based on [arm32v6/alpine](https://hub.docker.com/r/arm32v6/alpine/).
 
 This image contains :
 
