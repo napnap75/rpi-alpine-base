@@ -14,7 +14,7 @@ install:
 
 # Build and test the image
 script:
-  - if [ "$TRAVIS_BRANCH" != "edge" ]; then cat Dockerfile.source | sed "s/%VERSION%/${VERSION}/g" > Dockerfile.${VERSION} ; fi
+  - if [ "${VERSION}" != "edge" ]; then cat Dockerfile.source | sed "s/%VERSION%/${VERSION}/g" > Dockerfile.${VERSION} ; fi
   - docker build -t napnap75/rpi-alpine-base:${VERSION} -f Dockerfile.${VERSION} .
   - docker images
   - docker run --rm napnap75/rpi-alpine-base:${VERSION} uname -a
