@@ -5,6 +5,7 @@ sudo: required
 env:
   - VERSION=3.5
   - VERSION=3.6
+  - VERSION=edge
 
 # Install QEmu to allow Travis (on x86 systems) to build ARM images
 install:
@@ -13,7 +14,7 @@ install:
 
 # Build and test the image
 script:
-  - cat Dockerfile.source | sed "s/%VERSION%/${VERSION}/g" > Dockerfile.${VERSION}
+  - if [ "$TRAVIS_BRANCH" != "edge" ]; then cat Dockerfile.source | sed "s/%VERSION%/${VERSION}/g" > Dockerfile.${VERSION} ; fi
   - docker build -t napnap75/rpi-alpine-base:${VERSION} -f Dockerfile.${VERSION} .
   - docker images
   - docker run --rm napnap75/rpi-alpine-base:${VERSION} uname -a
@@ -23,5 +24,5 @@ after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
       docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" ;
       docker push napnap75/rpi-alpine-base:${VERSION} ;
-      if [ "${VERSION}" = "3.6" ]; then docker tag napnap75/rpi-alpine-base:${VERSION} napnap75/rpi-alpine-base:latest ; docker push napnap75/rpi-alpine-base:latest ; fi ;
+      if [ "${VERSION}" == "3.6" ]; then docker tag napnap75/rpi-alpine-base:${VERSION} napnap75/rpi-alpine-base:latest ; docker push napnap75/rpi-alpine-base:latest ; fi ;
     fi
