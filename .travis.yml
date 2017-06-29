@@ -2,6 +2,9 @@ language: bash
 services: docker
 sudo: required
 
+notifications:
+    slack: napnap75:$SLACK_TOKEN
+    
 env:
   - VERSION=3.5
   - VERSION=3.6
