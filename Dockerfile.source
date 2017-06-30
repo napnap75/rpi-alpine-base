@@ -5,6 +5,7 @@ COPY qemu-arm-static /usr/bin/qemu-arm-static
 
 # Install dependencies and set timezone
 RUN echo -e "http://dl-4.alpinelinux.org/alpine/v%VERSION%/main\nhttp://dl-4.alpinelinux.org/alpine/v%VERSION%/community" > /etc/apk/repositories \
+	&& apk upgrade --no-cache \
 	&& apk add --no-cache bash tini su-exec alpine-conf tzdata \
 	&& setup-timezone -z CET \
 	&& apk del alpine-conf tzdata
