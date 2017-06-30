@@ -8,8 +8,7 @@ RUN echo -e "http://dl-4.alpinelinux.org/alpine/edge/main\nhttp://dl-4.alpinelin
 	&& apk add --no-cache bash tini su-exec alpine-conf tzdata \
 	&& apk upgrade --no-cache \
 	&& setup-timezone -z CET \
-	&& apk del alpine-conf tzdata \
-	&& rm -rf /var/cache/apk/*
+	&& apk del alpine-conf tzdata
 
 # Add my own entry script to run as one user
 ADD docker-entrypoint.sh /usr/sbin/docker-entrypoint.sh
