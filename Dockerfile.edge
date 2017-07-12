@@ -1,7 +1,15 @@
+# Builder image
+FROM alpine:latest as builder
+
+RUN apk add --no-cache curl \
+  && curl -L -o qemu-arm-static.tar.gz https://github.com/multiarch/qemu-user-static/releases/download/v2.6.0/qemu-arm-static.tar.gz \
+  && tar xzf qemu-arm-static.tar.gz
+
+# Final image
 FROM arm32v6/alpine:3.6
 
 # Install QEmu to be able to build this image in Travis CI
-COPY qemu-arm-static /usr/bin/qemu-arm-static
+COPY --from=builder qemu-arm-static /usr/bin/qemu-arm-static
 
 # Install dependencies and set timezone
 RUN echo -e "http://dl-4.alpinelinux.org/alpine/edge/main\nhttp://dl-4.alpinelinux.org/alpine/edge/community" > /etc/apk/repositories \
