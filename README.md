@@ -3,7 +3,7 @@
 ![Alpine Linux](https://pkgs.alpinelinux.org/assets/alpinelinux-logo.svg)
 
 # Status
-[![Build Status](https://travis-ci.org/napnap75/rpi-alpine-base.svg?branch=master)](https://travis-ci.org/napnap75/rpi-alpine-base) [![Image size](https://images.microbadger.com/badges/image/napnap75/rpi-alpine-base.svg)](https://microbadger.com/images/napnap75/rpi-alpine-base "Get your own image badge on microbadger.com") [![Github link](https://assets-cdn.github.com/favicon.ico)](https://github.com/napnap75/rpi-alpine-base) [![Docker hub link](https://www.docker.com/favicon.ico)](https://hub.docker.com/r/napnap75/rpi-alpine-base/)
+[![Image size](https://images.microbadger.com/badges/image/napnap75/rpi-alpine-base.svg)](https://microbadger.com/images/napnap75/rpi-alpine-base "Get your own image badge on microbadger.com") [![Github link](https://assets-cdn.github.com/favicon.ico)](https://github.com/napnap75/rpi-alpine-base) [![Docker hub link](https://www.docker.com/favicon.ico)](https://hub.docker.com/r/napnap75/rpi-alpine-base/)
 
 
 # Content
