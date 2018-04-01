@@ -12,6 +12,7 @@ notifications:
 env:
   - VERSION=3.5
   - VERSION=3.6
+  - VERSION=3.7
 
 # Install QEmu to allow Travis (on x86 systems) to build ARM images
 install:
@@ -30,5 +31,5 @@ after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
       docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" ;
       docker push napnap75/rpi-alpine-base:${VERSION} ;
-      if [ "${VERSION}" == "3.6" ]; then docker tag napnap75/rpi-alpine-base:${VERSION} napnap75/rpi-alpine-base:latest ; docker push napnap75/rpi-alpine-base:latest ; fi ;
+      if [ "${VERSION}" == "3.7" ]; then docker tag napnap75/rpi-alpine-base:${VERSION} napnap75/rpi-alpine-base:latest ; docker push napnap75/rpi-alpine-base:latest ; fi ;
     fi
