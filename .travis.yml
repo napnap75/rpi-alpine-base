@@ -10,14 +10,14 @@ notifications:
     on_success: change
     
 env:
-  - VERSION=3.9
-  - VERSION=3.8
-  - VERSION=3.7
+  - VERSION=3.12
 
 # Install QEmu to allow Travis (on x86 systems) to build ARM images
 install:
   - docker run --rm --privileged multiarch/qemu-user-static:register
-  - curl -L -o qemu-arm-static.tar.gz https://github.com/multiarch/qemu-user-static/releases/download/v2.6.0/qemu-arm-static.tar.gz && tar xzf qemu-arm-static.tar.gz
+  - QEMU_DOWNLOAD_URL=$(curl -s https://api.github.com/repos/multiarch/qemu-user-static/releases/latest | grep "browser_download_url" | grep "\/qemu-arm-static.tar.gz" | cut -d\" -f4) 
+      && curl --retry 3 -L -s -o qemu-arm-static.tar.gz $QEMU_DOWNLOAD_URL
+	    && tar xzf qemu-arm-static.tar.gz
 
 # Build and test the image
 script:
