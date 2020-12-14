@@ -31,5 +31,5 @@ after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
       docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" ;
       docker push napnap75/rpi-alpine-base:${VERSION} ;
-      if [ "${VERSION}" == "3.9" ]; then docker tag napnap75/rpi-alpine-base:${VERSION} napnap75/rpi-alpine-base:latest ; docker push napnap75/rpi-alpine-base:latest ; fi ;
+      if [ "${VERSION}" == "3.12" ]; then docker tag napnap75/rpi-alpine-base:${VERSION} napnap75/rpi-alpine-base:latest ; docker push napnap75/rpi-alpine-base:latest ; fi ;
     fi
